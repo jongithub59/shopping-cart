@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function Home() {
   return (
     <>
@@ -9,7 +11,9 @@ function Home() {
           <h1>Deadlock</h1>
         </div>
         <div className="home-page-content">
-          <button>Enter Shop</button>
+          <button>
+            <Link to="shop">Enter Shop</Link>
+          </button>
         </div>
       </div>
     </>

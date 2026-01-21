@@ -6,12 +6,10 @@ import Cart from "./components/Cart";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div className="app">
-        <Shop></Shop>
+        <Home></Home>
       </div>
     </>
   );
