@@ -4,7 +4,9 @@ function Home() {
   return (
     <>
       <div className="cart-button">
-        <button>Cart</button>
+        <Link to="cart">
+          <button>Cart</button>
+        </Link>
       </div>
       <div className="home-page">
         <div className="header">

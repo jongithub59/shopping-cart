@@ -56,7 +56,7 @@ body {
   justify-self: center;
 }
 
-.shop-exit {
+.exit-button {
   align-self: end;
   margin: 2px;
 }
@@ -102,6 +102,21 @@ body {
   display: flex;
   margin-top: auto;
   justify-content: center;
+}
+
+.cart-page {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+  justify-self: center;
+}
+
+.cart-items {
+  display: grid;
+  gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  overflow: auto;
 }
 
 a {

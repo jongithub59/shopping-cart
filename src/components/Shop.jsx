@@ -4,7 +4,7 @@ import Item from "./Item";
 function Shop() {
   return (
     <div className="shop">
-      <div className="shop-exit">
+      <div className="exit-button">
         <Link to="/">
           <button>X</button>
         </Link>
