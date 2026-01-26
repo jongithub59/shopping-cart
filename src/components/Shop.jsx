@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useOutletContext } from "react-router";
 import Item from "./Item";
 
 function Shop() {
@@ -16,6 +16,7 @@ function Shop() {
             <h2>800 Souls | Tier 1</h2>
           </div>
           <div className="items-grid ">
+            <Item></Item>
             <Item></Item>
             <Item></Item>
             <Item></Item>
@@ -42,8 +43,8 @@ function Shop() {
             <Item></Item>
             <Item></Item>
             <Item></Item>
-            <Item> </Item>
-            <Item> </Item>
+            <Item></Item>
+            <Item></Item>
           </div>
         </section>
 
@@ -53,18 +54,15 @@ function Shop() {
             <h2>3200 Souls | Tier 3</h2>
           </div>
           <div className="items-grid ">
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
           </div>
         </section>
 
@@ -74,21 +72,17 @@ function Shop() {
             <h2>6400 Souls | Tier 4 | Experts Only!</h2>
           </div>
           <div className="items-grid ">
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
-            <Item> </Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
+            <Item></Item>
           </div>
         </section>
       </div>
