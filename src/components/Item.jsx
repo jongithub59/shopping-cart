@@ -1,10 +1,10 @@
-function Item() {
+function Item(props) {
   return (
-    <div className="item">
+    <div className="item" onClick={() => props.addToCart(props.name)}>
       <div className="item-graphic">
-        <img src="" alt="item graphic" />
+        <img src="bleh" alt="item graphic" />
       </div>
-      <div className="item-name">blah</div>
+      <div className="item-name">{props.name}</div>
     </div>
   );
 }

@@ -2,6 +2,13 @@ import { Link, useOutletContext } from "react-router";
 import Item from "./Item";
 
 function Shop() {
+  const { cart, setCart } = useOutletContext();
+
+  function addToCart(item) {
+    setCart([...cart, item]);
+    console.log(`Added ${item} to cart.`);
+  }
+
   return (
     <div className="shop">
       <div className="exit-button">
@@ -16,14 +23,14 @@ function Shop() {
             <h2>800 Souls | Tier 1</h2>
           </div>
           <div className="items-grid ">
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
+            {/* will need to refactor to an array map function created from outside array */}
+            <Item name={"Extra Spirit"} addToCart={addToCart}></Item>
+            <Item name={"Mystic Expansion"} addToCart={addToCart}></Item>
+            <Item name={"Mystic Burst"} addToCart={addToCart}></Item>
+            <Item name={"Extra Charge"} addToCart={addToCart}></Item>
+            <Item name={"Mystic Regeneration"} addToCart={addToCart}></Item>
+            <Item name={"Spirit Strike"} addToCart={addToCart}></Item>
+            <Item name={"Rusted Barrel"} addToCart={addToCart}></Item>
           </div>
         </section>
 
