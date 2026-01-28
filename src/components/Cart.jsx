@@ -2,7 +2,7 @@ import Item from "./Item";
 import { Link, useOutlet, useOutletContext } from "react-router";
 
 function Cart() {
-  const { cart } = useOutletContext();
+  const { cart, setCart, removeFromCart } = useOutletContext();
 
   console.log(`Current cart: ${cart}`);
   return (
@@ -16,7 +16,17 @@ function Cart() {
         </div>
         <div className="cart-items">
           {cart.map((item, index) => (
-            <div key={index}>{item}</div>
+            <div className="cart-item" key={index}>
+              <div className="cart-item-name">{item}</div>
+              <div className="remove-from-cart">
+                <button
+                  className="remove-button"
+                  onClick={() => removeFromCart(index, item)}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
