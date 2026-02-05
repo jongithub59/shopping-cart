@@ -1,10 +1,11 @@
 function Item(props) {
   return (
-    <div className="item" onClick={() => props.addToCart(props.name)}>
-      <div className="item-graphic">
-        <img src="bleh" alt="item graphic" />
-      </div>
-      <div className="item-name">{props.name}</div>
+    <div className="item" onClick={() => props.addToCart(props.item)}>
+      <div
+        className="item-graphic"
+        style={{ backgroundImage: `url(${props.item.image})` }}
+      ></div>
+      <div className="item-name">{props.item.name}</div>
     </div>
   );
 }

@@ -17,7 +17,7 @@ function Cart() {
         <div className="cart-items">
           {cart.map((item, index) => (
             <div className="cart-item" key={index}>
-              <div className="cart-item-name">{item}</div>
+              <div className="cart-item-name">{item.name}</div>
               <div className="remove-from-cart">
                 <button
                   className="remove-button"

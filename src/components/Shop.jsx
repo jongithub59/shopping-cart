@@ -1,97 +1,78 @@
 import { Link, useOutletContext } from "react-router";
+import ShopCategory from "./ShopCategory";
 import Item from "./Item";
+import { useState, useEffect } from "react";
 
 function Shop() {
   const { cart, setCart } = useOutletContext();
+  const [category, setCategory] = useState("weapon");
+  const [items, setItems] = useState([]);
+  const [error, setError] = useState(null);
+
+  console.log(category);
+
+  useEffect(() => {
+    fetch(`https://assets.deadlock-api.com/v2/items/by-slot-type/${category}`) // fetch request will fetch items of certain category based on category state
+      .then((response) => response.json())
+      .then((response) =>
+        response
+          .filter((item) => {
+            return item.shopable == true; // only items that can be purchased in-game will be added to the array
+          })
+          .map((item) => ({
+            // creates and array of objects containing relevant info as props
+            id: item.id,
+            name: item.name,
+            tier: item.item_tier,
+            cost: item.cost,
+            description: item.description.desc,
+            image: item.shop_image,
+          })),
+      )
+      .then((response) => setItems(response)) // update state to contain
+      .catch((error) => setError(error));
+  }, [category]); // re-fetch items when category state changes
 
   function addToCart(item) {
     setCart([...cart, item]);
-    console.log(`Added ${item} to cart.`);
+    console.log("Added item:", item);
   }
+
+  function changeCategory(category) {
+    setCategory(category);
+    console.log();
+  }
+
+  if (error) return <p>A network error was encountered</p>;
 
   return (
     <div className="shop">
-      <div className="exit-button">
-        <Link to="/">
-          <button>X</button>
-        </Link>
+      <div className="shop-header">
+        <div className="shop-header-left"></div>
+        <div className="shop-categories">
+          {/* Buttons to change what category of items are displayed */}
+          <div className="weapon-category">
+            <button onClick={() => changeCategory("weapon")}>Weapon</button>
+          </div>
+          <div className="vitality-category">
+            <button onClick={() => changeCategory("vitality")}>Vitality</button>
+          </div>
+          <div className="spirit-category">
+            <button onClick={() => changeCategory("spirit")}>Spirit</button>
+          </div>
+        </div>
+        <div className="exit-button">
+          <Link to="/">
+            <button>X</button>
+          </Link>
+        </div>
       </div>
       <div className="shop-main">
-        {/* Section 1 */}
-        <section className="section tier-1">
-          <div className="section-header tier-1">
-            <h2>800 Souls | Tier 1</h2>
-          </div>
-          <div className="items-grid ">
-            {/* will need to refactor to an array map function created from outside array */}
-            <Item name={"Extra Spirit"} addToCart={addToCart}></Item>
-            <Item name={"Mystic Expansion"} addToCart={addToCart}></Item>
-            <Item name={"Mystic Burst"} addToCart={addToCart}></Item>
-            <Item name={"Extra Charge"} addToCart={addToCart}></Item>
-            <Item name={"Mystic Regeneration"} addToCart={addToCart}></Item>
-            <Item name={"Spirit Strike"} addToCart={addToCart}></Item>
-            <Item name={"Rusted Barrel"} addToCart={addToCart}></Item>
-          </div>
-        </section>
-
-        {/* Section 2*/}
-        <section className="section tier-2">
-          <div className="section-header tier-2">
-            <h2>1600 Souls | Tier 2</h2>
-          </div>
-          <div className="items-grid">
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-          </div>
-        </section>
-
-        {/* Section 3 */}
-        <section className="section tier-3">
-          <div className="section-header tier-3">
-            <h2>3200 Souls | Tier 3</h2>
-          </div>
-          <div className="items-grid ">
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-          </div>
-        </section>
-
-        {/* Section 4 */}
-        <section className="section tier-4">
-          <div className="section-header tier-4">
-            <h2>6400 Souls | Tier 4 | Experts Only!</h2>
-          </div>
-          <div className="items-grid ">
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-            <Item></Item>
-          </div>
-        </section>
+        <ShopCategory
+          category={category}
+          items={items}
+          addToCart={addToCart}
+        ></ShopCategory>
       </div>
     </div>
   );
