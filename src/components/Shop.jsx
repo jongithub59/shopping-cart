@@ -9,8 +9,6 @@ function Shop() {
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
 
-  console.log(category);
-
   useEffect(() => {
     fetch(`https://assets.deadlock-api.com/v2/items/by-slot-type/${category}`) // fetch request will fetch items of certain category based on category state
       .then((response) => response.json())

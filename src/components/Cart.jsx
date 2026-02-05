@@ -8,23 +8,31 @@ function Cart() {
   return (
     <div className="app">
       <div className="cart-page">
-        <h2>Cart</h2>
-        <div className="exit-button">
-          <Link to="/">
-            <button>X</button>
-          </Link>
+        <div className="cart-header">
+          <h2>Cart</h2>
+          <div className="exit-button">
+            <Link to="/">
+              <button>X</button>
+            </Link>
+          </div>
         </div>
         <div className="cart-items">
           {cart.map((item, index) => (
             <div className="cart-item" key={index}>
-              <div className="cart-item-name">{item.name}</div>
-              <div className="remove-from-cart">
+              <div
+                className="cart-item-graphic"
+                style={{ backgroundImage: `url(${item.image})` }}
+              >
                 <button
                   className="remove-button"
                   onClick={() => removeFromCart(index, item)}
                 >
-                  Remove
+                  X
                 </button>
+              </div>
+              <div className="cart-item-content">
+                <div className="cart-item-name">{item.name}</div>
+                <div className="remove-from-cart"></div>
               </div>
             </div>
           ))}

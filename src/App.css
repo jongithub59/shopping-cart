@@ -117,7 +117,7 @@ body {
   background-size: cover;
   justify-content: center;
   align-items: end;
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
 .item-name {
@@ -128,6 +128,10 @@ body {
   font-size: 0.8rem;
   height: 60px;
   align-items: center;
+  background-color: #a36816;
+  color: black;
+  font-weight: bold;
+  padding: 1px;
 }
 
 .cart-page {
@@ -136,6 +140,12 @@ body {
   flex-direction: column;
   width: 750px;
   justify-self: center;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .cart-items {
@@ -150,23 +160,51 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  border-radius: 10px;
+  border-radius: 7px;
   max-width: 160px;
-  height: 180px;
-  max-height: 180px;
+  height: 190px;
+  max-height: 200px;
   border: 3px solid black;
+  background-color: #a36816;
+}
+
+.cart-item-graphic {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  justify-content: center;
+  align-items: start;
+  justify-content: end;
+  /* padding: 2px; */
+  border-radius: 5px;
+}
+
+.cart-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
 }
 
 .cart-item-name {
   text-align: center;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
 }
 
 .remove-button {
-  margin: 4px 0;
+  margin: 0;
   display: flex;
-  height: 28px;
-  font-size: 12px;
+  height: 22px;
+  width: 20px;
+  font-size: 0.6rem;
   align-items: center;
+  justify-content: center;
+  border-radius: 3px;
 }
 
 a {
