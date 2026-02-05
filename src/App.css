@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --weapon-accent: #a36816;
+  --vitality-accent: #508150;
+  --spirit-accent: #6b396b;
 }
 
 * {
@@ -165,7 +168,7 @@ body {
   height: 190px;
   max-height: 200px;
   border: 3px solid black;
-  background-color: #a36816;
+  background-color: var(--weapon-accent);
 }
 
 .cart-item-graphic {
