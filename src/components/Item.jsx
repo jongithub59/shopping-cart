@@ -5,7 +5,12 @@ function Item(props) {
         className="item-graphic"
         style={{ backgroundImage: `url(${props.item.image})` }}
       ></div>
-      <div className="item-name">{props.item.name}</div>
+      <div
+        className="item-name"
+        style={{ backgroundColor: `var(--${props.category}-accent)` }}
+      >
+        {props.item.name}
+      </div>
     </div>
   );
 }

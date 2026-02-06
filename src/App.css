@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
   --weapon-accent: #a36816;
   --vitality-accent: #508150;
-  --spirit-accent: #6b396b;
+  --spirit-accent: #7a487a;
 }
 
 * {
@@ -107,9 +107,8 @@ body {
   padding-top: 1px;
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
   cursor: pointer;
-  border-radius: 7px;
+  border-radius: 10px;
 }
 
 .item-graphic {
@@ -131,10 +130,10 @@ body {
   font-size: 0.8rem;
   height: 60px;
   align-items: center;
-  background-color: #a36816;
+  background-color: var(--weapon-accent);
   color: black;
   font-weight: bold;
-  padding: 1px;
+  padding: 0 1px;
 }
 
 .cart-page {

@@ -15,7 +15,12 @@ function ShopCategory(props) {
               return item.tier == 1;
             })
             .map((item) => (
-              <Item key={item.id} addToCart={props.addToCart} item={item} />
+              <Item
+                key={item.id}
+                addToCart={props.addToCart}
+                item={item}
+                category={props.category}
+              />
             ))}
         </div>
       </section>
@@ -30,7 +35,12 @@ function ShopCategory(props) {
               return item.tier == 2;
             })
             .map((item) => (
-              <Item key={item.id} addToCart={props.addToCart} item={item} />
+              <Item
+                key={item.id}
+                addToCart={props.addToCart}
+                item={item}
+                category={props.category}
+              />
             ))}
         </div>
       </section>
@@ -45,7 +55,12 @@ function ShopCategory(props) {
               return item.tier == 3;
             })
             .map((item) => (
-              <Item key={item.id} addToCart={props.addToCart} item={item} />
+              <Item
+                key={item.id}
+                addToCart={props.addToCart}
+                item={item}
+                category={props.category}
+              />
             ))}
         </div>
       </section>
@@ -60,7 +75,12 @@ function ShopCategory(props) {
               return item.tier == 4;
             })
             .map((item) => (
-              <Item key={item.id} addToCart={props.addToCart} item={item} />
+              <Item
+                key={item.id}
+                addToCart={props.addToCart}
+                item={item}
+                category={props.category}
+              />
             ))}
         </div>
       </section>
