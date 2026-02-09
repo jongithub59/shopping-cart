@@ -1,6 +1,7 @@
 import Item from "./Item";
 
 function ShopCategory(props) {
+  props.items.sort((a, b) => a.name.localeCompare(b.name)); // sort items in alphabetical order
   return (
     <>
       {/* Section 1 */}
@@ -34,6 +35,7 @@ function ShopCategory(props) {
             .filter((item) => {
               return item.tier == 2;
             })
+
             .map((item) => (
               <Item
                 key={item.id}
@@ -54,6 +56,7 @@ function ShopCategory(props) {
             .filter((item) => {
               return item.tier == 3;
             })
+
             .map((item) => (
               <Item
                 key={item.id}
