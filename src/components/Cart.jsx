@@ -24,7 +24,11 @@ function Cart() {
         </div>
         <div className="cart-items">
           {cart.map((item, index) => (
-            <div className="cart-item" key={index}>
+            <div
+              className="cart-item"
+              key={index}
+              style={{ backgroundColor: `var(--${item.type}-accent)` }}
+            >
               <div
                 className="cart-item-graphic"
                 style={{ backgroundImage: `url(${item.image})` }}

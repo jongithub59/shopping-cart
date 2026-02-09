@@ -8,6 +8,7 @@ function Shop() {
   const [category, setCategory] = useState("weapon");
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(`https://assets.deadlock-api.com/v2/items/by-slot-type/${category}`) // fetch request will fetch items of certain category based on category state
@@ -25,10 +26,12 @@ function Shop() {
             cost: item.cost,
             description: item.description.desc,
             image: item.shop_image,
+            type: item.item_slot_type,
           })),
       )
       .then((response) => setItems(response)) // update state to contain
-      .catch((error) => setError(error));
+      .catch((error) => setError(error))
+      .finally(() => setIsLoading(false));
   }, [category]); // re-fetch items when category state changes
 
   function addToCart(item) {
@@ -66,11 +69,17 @@ function Shop() {
         </div>
       </div>
       <div className="shop-main">
-        <ShopCategory
-          category={category}
-          items={items}
-          addToCart={addToCart}
-        ></ShopCategory>
+        {isLoading ? (
+          <div className="loading">
+            <p>Loading...</p>
+          </div>
+        ) : (
+          <ShopCategory
+            category={category}
+            items={items}
+            addToCart={addToCart}
+          ></ShopCategory>
+        )}
       </div>
     </div>
   );
