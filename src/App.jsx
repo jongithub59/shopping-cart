@@ -31,7 +31,9 @@ function App() {
           </div>
           <div className="cart-button">
             <Link to="Cart">
-              <button>Cart</button>
+              <button>
+                Cart{cart.length > 0 ? `: ${cart.length} item(s)` : ""}
+              </button>
             </Link>
           </div>
         </div>

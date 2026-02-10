@@ -30,7 +30,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  align-items: center;
+  /* align-items: center; */
   min-height: 90vh;
 }
 
@@ -63,6 +63,7 @@ body {
   width: 1200px;
   border: 4px solid salmon;
   align-items: center;
+  align-self: center;
   justify-self: center;
 }
 
