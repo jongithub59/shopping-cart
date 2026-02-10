@@ -34,6 +34,13 @@ body {
   min-height: 90vh;
 }
 
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
 .home-page {
   display: flex;
   flex-direction: column;
