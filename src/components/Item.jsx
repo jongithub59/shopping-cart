@@ -1,6 +1,16 @@
+import { useState } from "react";
+
 function Item(props) {
+  // check if the item has already in cart so we can prevent a second buy since you can't buy the same item twice in deadlock
+  const inCart = props.cart.some((item) => item.id == props.item.id);
   return (
-    <div className="item" onClick={() => props.addToCart(props.item)}>
+    <div
+      // add the purchased style rule that disables mouse event for the element
+      className={`item ${inCart ? "purchased " : ""} ${
+        props.noMouse ? "no-mouse no-hover" : ""
+      }`}
+      onClick={() => props.addToCart(props.item)}
+    >
       <div
         className="item-graphic"
         style={{ backgroundImage: `url(${props.item.image})` }}

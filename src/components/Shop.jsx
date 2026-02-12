@@ -77,6 +77,7 @@ function Shop() {
           <ShopCategory
             category={category}
             items={items}
+            cart={cart}
             addToCart={addToCart}
           ></ShopCategory>
         )}

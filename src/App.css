@@ -38,7 +38,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 20px auto;
+  width: 70%;
 }
 
 .home-page {
@@ -117,6 +118,20 @@ body {
   flex-direction: column;
   cursor: pointer;
   border-radius: 10px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.purchased {
+  pointer-events: none;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .item-graphic {

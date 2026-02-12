@@ -21,6 +21,7 @@ function ShopCategory(props) {
                 addToCart={props.addToCart}
                 item={item}
                 category={props.category}
+                cart={props.cart}
               />
             ))}
         </div>
@@ -42,6 +43,7 @@ function ShopCategory(props) {
                 addToCart={props.addToCart}
                 item={item}
                 category={props.category}
+                cart={props.cart}
               />
             ))}
         </div>
@@ -63,6 +65,7 @@ function ShopCategory(props) {
                 addToCart={props.addToCart}
                 item={item}
                 category={props.category}
+                cart={props.cart}
               />
             ))}
         </div>
@@ -83,6 +86,7 @@ function ShopCategory(props) {
                 addToCart={props.addToCart}
                 item={item}
                 category={props.category}
+                cart={props.cart}
               />
             ))}
         </div>
