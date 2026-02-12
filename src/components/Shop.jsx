@@ -71,7 +71,7 @@ function Shop() {
       <div className="shop-main">
         {isLoading ? (
           <div className="loading">
-            <p>Loading...</p>
+            <h1>Loading...</h1>
           </div>
         ) : (
           <ShopCategory
