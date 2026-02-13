@@ -23,29 +23,38 @@ function Cart() {
           </div>
         </div>
         <div className="cart-items">
-          {cart.map((item, index) => (
-            <div
-              className="cart-item"
-              key={index}
-              style={{ backgroundColor: `var(--${item.type}-accent)` }}
-            >
+          {[...cart] // take current cart
+            .map((item, index) => ({ item, index })) // attach index of original order
+            .sort((a, b) => {
+              // now sort by tiers, 1 being first, 4 being last
+              if (a.item.tier !== b.item.tier) {
+                return a.item.tier - b.item.tier;
+              }
+              return a.index - b.index; // then sort by original buy order within tiers
+            })
+            .map(({ item, index }) => (
               <div
-                className="cart-item-graphic"
-                style={{ backgroundImage: `url(${item.image})` }}
+                className="cart-item"
+                key={index}
+                style={{ backgroundColor: `var(--${item.type}-accent)` }}
               >
-                <button
-                  className="remove-button"
-                  onClick={() => removeFromCart(index, item)}
+                <div
+                  className="cart-item-graphic"
+                  style={{ backgroundImage: `url(${item.image})` }}
                 >
-                  X
-                </button>
+                  <button
+                    className="remove-button"
+                    onClick={() => removeFromCart(index, item)}
+                  >
+                    X
+                  </button>
+                </div>
+                <div className="cart-item-content">
+                  <div className="cart-item-name">{item.name}</div>
+                  <div className="remove-from-cart"></div>
+                </div>
               </div>
-              <div className="cart-item-content">
-                <div className="cart-item-name">{item.name}</div>
-                <div className="remove-from-cart"></div>
-              </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
