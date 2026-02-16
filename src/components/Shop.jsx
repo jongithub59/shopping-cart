@@ -35,7 +35,6 @@ function Shop() {
             properties: item.properties,
             desc: item.description,
             stats: item.upgrades[0].property_upgrades,
-            toolTips: item.tooltip_section,
           })),
       )
       .then((response) => setItems(response)) // update state to contain
