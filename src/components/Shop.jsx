@@ -22,11 +22,20 @@ function Shop() {
             // creates and array of objects containing relevant info as props
             id: item.id,
             name: item.name,
+            className: item.class_name,
+            itemType: item.type,
             tier: item.item_tier,
             cost: item.cost,
             description: item.description.desc,
             image: item.shop_image,
             type: item.item_slot_type,
+            component: item.component_items,
+            isActive: item.is_active_item,
+            isImbue: item.imbue,
+            properties: item.properties,
+            desc: item.description,
+            stats: item.upgrades[0].property_upgrades,
+            toolTips: item.tooltip_section,
           })),
       )
       .then((response) => setItems(response)) // update state to contain
