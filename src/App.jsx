@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { Outlet } from "react-router";
 import { Link } from "react-router";
@@ -7,7 +7,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function addToCart(item) {
-    setCart([...cart, item]);
+    setCart((prev) => [...prev, item]);
     console.log("Added item:", item);
   }
 
@@ -19,6 +19,26 @@ function App() {
     setCart((prev) => prev.filter((_, i) => i !== index));
     console.log(`Removed ${item.name} from cart.`);
   }
+
+  // check cart for redundent item components since components become the upgrade
+  // ex. extra spirit becomes improved spirit when bought, so it should not be in cart or count for total souls
+  useEffect(() => {
+    // get items that are components of items already in the cart ex. close quarters and point blanl
+    const itemComponents = cart.flatMap((item) => item.components ?? []);
+
+    // create new cart without redundant item upgrade components of items already in cart
+    const cleanCart = cart.filter(
+      (item) =>
+        // filter by items that are NOT components of existing cart items
+        !itemComponents.includes(item.className),
+    );
+
+    // prevent infinite loops by only running setCart when cleanedCart length is different
+    // from cart state, so only when component filtering is needed
+    if (cleanCart.length !== cart.length) {
+      setCart(cleanCart);
+    }
+  }, [cart]); // run cart checking whenever cart changes
 
   return (
     <>
