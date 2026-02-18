@@ -22,12 +22,12 @@ function App() {
 
   // check cart for redundent item components since components become the upgrade
   // ex. extra spirit becomes improved spirit when bought, so it should not be in cart or count for total souls
-  useEffect(() => {
+  function cleanCart() {
     // get items that are components of items already in the cart ex. close quarters and point blanl
     const itemComponents = cart.flatMap((item) => item.components ?? []);
 
     // create new cart without redundant item upgrade components of items already in cart
-    const cleanCart = cart.filter(
+    const cleanedCart = cart.filter(
       (item) =>
         // filter by items that are NOT components of existing cart items
         !itemComponents.includes(item.className),
@@ -35,9 +35,13 @@ function App() {
 
     // prevent infinite loops by only running setCart when cleanedCart length is different
     // from cart state, so only when component filtering is needed
-    if (cleanCart.length !== cart.length) {
-      setCart(cleanCart);
+    if (cleanedCart.length !== cart.length) {
+      setCart(cleanedCart);
     }
+  }
+
+  useEffect(() => {
+    cleanCart();
   }, [cart]); // run cart checking whenever cart changes
 
   return (
