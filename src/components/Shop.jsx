@@ -4,7 +4,7 @@ import Item from "./Item";
 import { useState, useEffect } from "react";
 
 function Shop() {
-  const { cart, setCart } = useOutletContext();
+  const { cart, addToCart, setCart } = useOutletContext();
   const [category, setCategory] = useState("weapon");
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
@@ -29,7 +29,7 @@ function Shop() {
             description: item.description.desc,
             image: item.shop_image,
             type: item.item_slot_type,
-            component: item.component_items,
+            components: item.component_items,
             isActive: item.is_active_item,
             isImbue: item.imbue,
             properties: item.properties,
@@ -41,11 +41,6 @@ function Shop() {
       .catch((error) => setError(error))
       .finally(() => setIsLoading(false));
   }, [category]); // re-fetch items when category state changes
-
-  function addToCart(item) {
-    setCart([...cart, item]);
-    console.log("Added item:", item);
-  }
 
   function changeCategory(category) {
     setCategory(category);

@@ -6,13 +6,18 @@ import { Link } from "react-router";
 function App() {
   const [cart, setCart] = useState([]);
 
+  function addToCart(item) {
+    setCart([...cart, item]);
+    console.log("Added item:", item);
+  }
+
   function clearCart() {
     setCart([]);
   }
 
   function removeFromCart(index, item) {
     setCart((prev) => prev.filter((_, i) => i !== index));
-    console.log(`Removed ${item} from cart.`);
+    console.log(`Removed ${item.name} from cart.`);
   }
 
   return (
@@ -38,7 +43,9 @@ function App() {
           </div>
         </div>
         {/* outlet context allows access to this state variable if it's in the route (which is everything in App) */}
-        <Outlet context={{ cart, setCart, clearCart, removeFromCart }} />
+        <Outlet
+          context={{ cart, addToCart, setCart, clearCart, removeFromCart }}
+        />
       </div>
     </>
   );

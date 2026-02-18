@@ -15,9 +15,10 @@ function ShopCategory(props) {
             .filter((item) => {
               return item.tier == 1;
             })
-            .map((item) => (
+            .map((item, index) => (
               <Item
                 key={item.id}
+                index={index}
                 addToCart={props.addToCart}
                 item={item}
                 category={props.category}
@@ -37,9 +38,10 @@ function ShopCategory(props) {
               return item.tier == 2;
             })
 
-            .map((item) => (
+            .map((item, index) => (
               <Item
                 key={item.id}
+                index={index}
                 addToCart={props.addToCart}
                 item={item}
                 category={props.category}
@@ -59,9 +61,10 @@ function ShopCategory(props) {
               return item.tier == 3;
             })
 
-            .map((item) => (
+            .map((item, index) => (
               <Item
                 key={item.id}
+                index={index}
                 addToCart={props.addToCart}
                 item={item}
                 category={props.category}
@@ -80,9 +83,10 @@ function ShopCategory(props) {
             .filter((item) => {
               return item.tier == 4;
             })
-            .map((item) => (
+            .map((item, index) => (
               <Item
                 key={item.id}
+                index={index}
                 addToCart={props.addToCart}
                 item={item}
                 category={props.category}
