@@ -112,6 +112,7 @@ body {
 }
 
 .item {
+  position: relative;
   height: 130px;
   padding-top: 1px;
   display: flex;
@@ -130,6 +131,16 @@ body {
 
 .item:active {
   transform: scale(0.9);
+}
+
+.item.purchased::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./assets/purchased.png"); /* your png */
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
 }
 
 .purchased {
