@@ -36,7 +36,7 @@ function Cart() {
               <div
                 className="cart-item"
                 key={index}
-                style={{ backgroundColor: `var(--${item.type}-accent)` }}
+                style={{ backgroundColor: `var(--${item.category}-accent)` }}
               >
                 <div
                   className="cart-item-graphic"

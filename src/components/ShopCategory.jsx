@@ -1,7 +1,7 @@
 import Item from "./Item";
 
 function ShopCategory(props) {
-  props.items.sort((a, b) => a.name.localeCompare(b.name)); // sort items in alphabetical order
+  props.shopItems.sort((a, b) => a.name.localeCompare(b.name)); // sort items in alphabetical order
   return (
     <>
       {/* Section 1 */}
@@ -10,7 +10,7 @@ function ShopCategory(props) {
           <h2>800 Souls | Tier 1</h2>
         </div>
         <div className="items-grid ">
-          {props.items
+          {props.shopItems
             // take only tier one items then render those Item components
             .filter((item) => {
               return item.tier == 1;
@@ -19,10 +19,11 @@ function ShopCategory(props) {
               <Item
                 key={item.id}
                 index={index}
-                addToCart={props.addToCart}
+                buyItem={props.buyItem}
                 item={item}
                 category={props.category}
                 cart={props.cart}
+                ownedItems={props.ownedItems}
               />
             ))}
         </div>
@@ -33,7 +34,7 @@ function ShopCategory(props) {
           <h2>1600 Souls | Tier 2</h2>
         </div>
         <div className="items-grid">
-          {props.items
+          {props.shopItems
             .filter((item) => {
               return item.tier == 2;
             })
@@ -42,10 +43,11 @@ function ShopCategory(props) {
               <Item
                 key={item.id}
                 index={index}
-                addToCart={props.addToCart}
+                buyItem={props.buyItem}
                 item={item}
                 category={props.category}
                 cart={props.cart}
+                ownedItems={props.ownedItems}
               />
             ))}
         </div>
@@ -56,7 +58,7 @@ function ShopCategory(props) {
           <h2>3200 Souls | Tier 3</h2>
         </div>
         <div className="items-grid ">
-          {props.items
+          {props.shopItems
             .filter((item) => {
               return item.tier == 3;
             })
@@ -65,10 +67,11 @@ function ShopCategory(props) {
               <Item
                 key={item.id}
                 index={index}
-                addToCart={props.addToCart}
+                buyItem={props.buyItem}
                 item={item}
                 category={props.category}
                 cart={props.cart}
+                ownedItems={props.ownedItems}
               />
             ))}
         </div>
@@ -79,7 +82,7 @@ function ShopCategory(props) {
           <h2>6400 Souls | Tier 4 | Experts Only!</h2>
         </div>
         <div className="items-grid ">
-          {props.items
+          {props.shopItems
             .filter((item) => {
               return item.tier == 4;
             })
@@ -87,10 +90,11 @@ function ShopCategory(props) {
               <Item
                 key={item.id}
                 index={index}
-                addToCart={props.addToCart}
+                buyItem={props.buyItem}
                 item={item}
                 category={props.category}
                 cart={props.cart}
+                ownedItems={props.ownedItems}
               />
             ))}
         </div>
