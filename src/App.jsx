@@ -10,6 +10,15 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // cache a map of all items to make it easier to look up components by className
+  const itemMap = useMemo(() => {
+    const map = {};
+    items.forEach((item) => {
+      map[item.className] = item;
+    });
+    return map;
+  }, [items]);
+
   // reworked app to fetch items once and organize them for the shop instead of fetching everytime we swap categories
   useEffect(() => {
     fetch(`https://assets.deadlock-api.com/v2/items`) // fetch all items
@@ -54,6 +63,13 @@ function App() {
       // prevent infinite loops
       if (!grabbed.has(className)) {
         grabbed.add(className); // add the component's className to the set
+      }
+
+      // look up full item object of the component so we can also grab its components if they exist
+      // ex. Juggernaut builds from Enduring Speed which builds from Sprint Boots
+      const componentItem = itemMap[className];
+      if (componentItem) {
+        grabComponents(componentItem, grabbed); // recursive call to now grab the components of this component
       }
     }
 
