@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import "./App.css";
 import { Outlet } from "react-router";
 import { Link } from "react-router";
@@ -46,10 +46,41 @@ function App() {
       .finally(() => setIsLoading(false));
   }, []);
 
+  // get the components of an item and add them to a set,
+  function grabComponents(item, grabbed = new Set()) {
+    if (!item.components) return grabbed; // just return if item has no upgrade components
+
+    for (const className of item.components) {
+      // prevent infinite loops
+      if (!grabbed.has(className)) {
+        grabbed.add(className); // add the component's className to the set
+      }
+    }
+
+    return grabbed;
+  }
+
   // rework this to also update new state for owned items separate from cart
   function buyItem(item) {
+    // add this item's components to a set if it has any
+    const componentSet = grabComponents(item);
+
+    // add the item and its components to owned items
+    setOwnedItems((prev) => {
+      // new updated set that will contain new item and its components will replace old owned set state
+      const updatedOwnedSet = new Set(prev);
+
+      // add new item first to the set
+      updatedOwnedSet.add(item.className);
+
+      // now add the item's component(s) to the updated set
+      componentSet.forEach((component) => updatedOwnedSet.add(component));
+
+      // return updated set for the owned items state setter
+      return updatedOwnedSet;
+    });
+
     setCart((prev) => [...prev, item]);
-    setOwnedItems((prev) => new Set(prev).add(item.className));
 
     console.log("Added item:", item);
   }
