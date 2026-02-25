@@ -105,8 +105,18 @@ function App() {
     setCart([]);
   }
 
+  // same logic as buyItem but instead we remove them to sell
   function removeFromCart(index, item) {
+    const componentSet = grabComponents(item);
+
+    setOwnedItems((prev) => {
+      const updatedOwnedSet = new Set(prev);
+      updatedOwnedSet.delete(item.className);
+      componentSet.forEach((component) => updatedOwnedSet.delete(component));
+      return updatedOwnedSet;
+    });
     setCart((prev) => prev.filter((_, i) => i !== index));
+
     console.log(`Removed ${item.name} from cart.`);
   }
 
