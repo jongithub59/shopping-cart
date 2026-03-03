@@ -110,6 +110,18 @@ video {
   background-repeat: no-repeat;
 }
 
+.shop.weapon {
+  background-image: url("./assets/catalog_shop_bg_weapon.png");
+}
+
+.shop.vitality {
+  background-image: url("./assets/catalog_shop_bg_vitality.png");
+}
+
+.shop.spirit {
+  background-image: url("./assets/catalog_shop_bg_spirit.png");
+}
+
 .exit-button {
   align-self: end;
   margin: 2px;
@@ -166,6 +178,17 @@ video {
   bottom: 3%;
   right: 3.5%;
   width: 40%;
+}
+
+.shop.vitality .tier-3,
+.shop.spirit .tier-3 {
+  width: 30%;
+}
+
+.shop.vitality .tier-4,
+.shop.spirit .tier-4 {
+  width: 47%;
+  right: 4.5%;
 }
 
 .section-header {

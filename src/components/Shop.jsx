@@ -26,7 +26,7 @@ function Shop() {
       <div className="shop-logo">
         <img src={shopLogo} alt="Shop Logo" />
       </div>
-      <div className="shop">
+      <div className={`shop ${category}`}>
         <div className="shop-header">
           <div className="shop-header-left"></div>
           <div className="shop-categories">
