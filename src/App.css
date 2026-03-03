@@ -35,8 +35,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  /* align-items: center; */
   min-height: 90vh;
+  align-items: center;
 }
 
 video {
@@ -53,7 +53,7 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
+  margin: 0 auto;
   width: 80%;
 }
 
@@ -89,15 +89,25 @@ video {
   font-size: 2rem;
 }
 
+.shop-logo {
+  height: 120px;
+  max-height: 180px;
+  margin-bottom: 20px;
+}
+
+.shop-logo img {
+  height: 100%;
+}
+
 .shop {
-  display: flex;
-  flex-direction: column;
-  height: 1100px;
-  width: 1200px;
-  border: 4px solid salmon;
-  align-items: center;
-  align-self: center;
-  justify-self: center;
+  position: relative;
+  width: 60vw;
+  height: 900px;
+  max-width: 1100px;
+  aspect-ratio: 1100 / 900;
+  background-image: url("./assets/catalog_shop_bg_weapon.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .exit-button {
@@ -112,12 +122,13 @@ video {
 .shop-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
   width: 100%;
 }
 
 .shop-categories {
   display: flex;
+  z-index: 1;
 }
 
 .shop-main {
@@ -125,12 +136,36 @@ video {
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(2, 1fr);
-  padding: 4px;
+  padding: 30px;
 }
 
 .section {
-  border: 3px solid maroon;
+  position: absolute;
+  min-width: 450px;
   padding: 7px;
+}
+
+.tier-1 {
+  top: 15%;
+  left: 4%;
+}
+
+.tier-2 {
+  top: 1.5%;
+  right: 4%;
+  width: 48%;
+}
+
+.tier-3 {
+  bottom: 3%;
+  left: 4.5%;
+  width: 47%;
+}
+
+.tier-4 {
+  bottom: 3%;
+  right: 3.5%;
+  width: 40%;
 }
 
 .section-header {
@@ -139,13 +174,13 @@ video {
 
 .items-grid {
   display: grid;
-  gap: 5px;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 2px;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
 }
 
 .item {
   position: relative;
-  height: 130px;
+  height: 120px;
   padding-top: 1px;
   display: flex;
   flex-direction: column;
@@ -157,8 +192,8 @@ video {
 }
 
 .item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(1.03);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.5);
 }
 
 .item:active {
@@ -169,7 +204,7 @@ video {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("./assets/purchased.png"); /* your png */
+  background-image: url("./assets/purchased.png");
   background-size: contain;
   background-repeat: no-repeat;
   pointer-events: none;
@@ -199,7 +234,7 @@ video {
   margin-top: auto;
   justify-content: center;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   height: 60px;
   align-items: center;
   background-color: var(--weapon-accent);
