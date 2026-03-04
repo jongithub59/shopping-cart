@@ -145,20 +145,60 @@ video {
 
 .shop-main {
   width: 100%;
+  height: 100%;
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(2, 1fr);
-  padding: 30px;
+  /* padding: 30px; */
 }
 
 .section {
   position: absolute;
   min-width: 450px;
-  padding: 7px;
+  padding-top: 50px;
+}
+
+.section-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  rotate: -5deg;
+}
+
+.tier-1 .section-header {
+  top: 3%;
+  left: -1%;
+}
+
+.tier-2 .section-header {
+  top: 1%;
+  left: 1%;
+}
+
+.tier-3 .section-header {
+  top: -0.5%;
+  left: 1%;
+}
+
+.tier-4 .section-header {
+  top: -2.5%;
+  left: 1%;
+}
+
+.shop.weapon .tier-4 .section-header {
+  top: -2.5%;
+  left: 4%;
+}
+
+.soul-symbol {
+  height: 20px;
+  margin: 0 2px;
 }
 
 .tier-1 {
-  top: 15%;
+  top: 14.5%;
   left: 4%;
 }
 

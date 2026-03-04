@@ -1,4 +1,5 @@
 import Item from "./Item";
+import soul from "../assets/price_currency.png";
 
 function ShopCategory(props) {
   props.shopItems.sort((a, b) => a.name.localeCompare(b.name)); // sort items in alphabetical order
@@ -6,8 +7,9 @@ function ShopCategory(props) {
     <>
       {/* Section 1 */}
       <section className="section tier-1">
-        <div className="section-header tier-1">
-          <h4>800</h4>
+        <div className="section-header tier-1-header">
+          <img className="soul-symbol" src={soul} alt="Currency symbol" />
+          <h3>800</h3>
         </div>
         <div className="items-grid ">
           {props.shopItems
@@ -30,8 +32,9 @@ function ShopCategory(props) {
       </section>
       {/* Section 2*/}
       <section className="section tier-2">
-        <div className="section-header tier-2">
-          <h4>1600</h4>
+        <div className="section-header tier-2-header">
+          <img className="soul-symbol" src={soul} alt="Currency symbol" />
+          <h3>1600</h3>
         </div>
         <div className="items-grid">
           {props.shopItems
@@ -54,8 +57,9 @@ function ShopCategory(props) {
       </section>
       {/* Section 3 */}
       <section className="section tier-3">
-        <div className="section-header tier-3">
-          <h4>3200</h4>
+        <div className="section-header tier-3-header">
+          <img className="soul-symbol" src={soul} alt="Currency symbol" />
+          <h3>3200</h3>
         </div>
         <div className="items-grid ">
           {props.shopItems
@@ -78,8 +82,9 @@ function ShopCategory(props) {
       </section>
       {/* Section 4 */}
       <section className="section tier-4">
-        <div className="section-header tier-4">
-          <h4>6400</h4>
+        <div className="section-header tier-4-header">
+          <img className="soul-symbol" src={soul} alt="Currency symbol" />
+          <h3>6400</h3>{" "}
         </div>
         <div className="items-grid ">
           {props.shopItems
