@@ -1,6 +1,7 @@
 import { Link, useOutletContext } from "react-router";
 import ShopCategory from "./ShopCategory";
 import shopLogo from "../assets/shop_logo_ui.png";
+import shopBackground from "../assets/background_nyc_cityscape_bw.webp";
 import { useState, useEffect } from "react";
 
 function Shop() {
@@ -59,6 +60,9 @@ function Shop() {
             buyItem={buyItem}
           ></ShopCategory>
         </div>
+      </div>
+      <div className="shop-background">
+        <img src={shopBackground} alt="" />
       </div>
     </>
   );

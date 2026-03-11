@@ -49,6 +49,16 @@ video {
   min-height: 100%;
 }
 
+.shop-background {
+  position: fixed;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 .navbar {
   display: flex;
   justify-content: center;
