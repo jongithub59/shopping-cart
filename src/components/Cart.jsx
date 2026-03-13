@@ -1,4 +1,6 @@
 import Item from "./Item";
+import shopLogo from "../assets/shop_logo_ui.png";
+import soul from "../assets/price_currency.png";
 import { Link, useOutlet, useOutletContext } from "react-router";
 
 function Cart() {
@@ -10,18 +12,28 @@ function Cart() {
   console.log(`Current cart: ${cart.map((item) => item.name)}`);
   return (
     <div className="app">
+      <div className="shop-logo">
+        <img src={shopLogo} alt="Shop Logo" />
+      </div>
       <div className="cart-page">
         <div className="cart-header">
-          <h2>Cart</h2>
+          <h1>Cart</h1>
           {/* conditional elements if cart is empty or not */}
           {cart.length == 0 && <h3> Cart is empty</h3>}
-          {cart.length > 0 && <h3>Total Cost: {formattedCost} Souls</h3>}
+          {cart.length > 0 && (
+            <h2>
+              Total Cost:{" "}
+              <img className="soul-symbol" src={soul} alt="Currency symbol" />
+              {formattedCost}
+            </h2>
+          )}
           <div className="exit-button">
             <Link to="/">
-              <button>Go Back</button>
+              <button>Keep Shopping</button>
             </Link>
           </div>
         </div>
+        <hr />
         <div className="cart-items">
           {[...cart] // take current cart
             .map((item, index) => ({ item, index })) // attach index of original order

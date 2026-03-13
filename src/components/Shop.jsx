@@ -44,11 +44,6 @@ function Shop() {
               <button onClick={() => changeCategory("spirit")}>Spirit</button>
             </div>
           </div>
-          <div className="exit-button">
-            <Link to="/">
-              <button>X</button>
-            </Link>
-          </div>
         </div>
         <div className="shop-main">
           <ShopCategory
