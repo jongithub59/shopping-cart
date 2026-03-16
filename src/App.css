@@ -135,7 +135,7 @@ video {
   background-image: url("./assets/catalog_shop_bg_spirit.png");
 }
 
-.exit-button {
+.cart-exit-button {
   align-self: end;
   margin: 2px;
 }

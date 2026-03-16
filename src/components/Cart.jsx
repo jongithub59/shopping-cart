@@ -27,8 +27,8 @@ function Cart() {
               {formattedCost}
             </h2>
           )}
-          <div className="exit-button">
-            <Link to="/">
+          <div className="cart-exit-button">
+            <Link to="/Shop">
               <button>Keep Shopping</button>
             </Link>
           </div>
