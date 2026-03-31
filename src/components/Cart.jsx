@@ -19,7 +19,7 @@ function Cart() {
         <div className="cart-header">
           <h1>Cart</h1>
           {/* conditional elements if cart is empty or not */}
-          {cart.length == 0 && <h3> Cart is empty</h3>}
+          {cart.length == 0 && <h2>Cart is empty</h2>}
           {cart.length > 0 && (
             <h2>
               Total Cost:{" "}

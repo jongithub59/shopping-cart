@@ -9,6 +9,8 @@ function Item(props) {
         props.noMouse ? "no-mouse no-hover" : ""
       }`}
       onClick={() => props.buyItem(props.item)}
+      onMouseEnter={() => props.onHover(props.item)}
+      onMouseLeave={props.onLeave}
     >
       <div
         className="item-graphic"
