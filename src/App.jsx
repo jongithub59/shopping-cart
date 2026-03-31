@@ -38,6 +38,8 @@ function App() {
             tier: item.item_tier,
             cost: item.cost,
             description: item.description.desc,
+            activeDescription: item.description.active,
+            passiveDescription: item.description.passive,
             image: item.shop_image,
             category: item.item_slot_type,
             components: item.component_items,

@@ -131,6 +131,18 @@ video {
   font-family: "system-ui", "Segoe UI", sans-serif;
 }
 
+.item-tooltip ul {
+  margin: 5px 0;
+}
+
+.item-tooltip li {
+  list-style-type: none;
+}
+
+.item-tooltip p {
+  margin-top: 5px 0;
+}
+
 .shop {
   position: relative;
   width: 60vw;
