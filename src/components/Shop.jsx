@@ -116,7 +116,10 @@ function Shop() {
         </div>
         {/* show tooltip when an item is hovered, and show all formmatted data that has values in their props */}
         {hoveredItem && (
-          <div className="item-tooltip">
+          <div
+            className="item-tooltip"
+            style={{ backgroundColor: `var(--${category}-accent)` }}
+          >
             <h3>{hoveredItem.name}</h3>
             {hoveredItemStats?.length > 0 && (
               <ul>
