@@ -10,6 +10,7 @@ function Shop() {
   const [shopItems, setShopItems] = useState([]);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredItemStats, setHoveredItemStats] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 }); // state variable to track mouse position to render toolip at mouse position
 
   // get the hovered item's properties and update state to display item stats in the tooltip
   useEffect(() => {
@@ -101,7 +102,13 @@ function Shop() {
               </div>
             </div>
           </div>
-          <div className="shop-main">
+          <div
+            className="shop-main"
+            // when mouse moves within the shop, update state with current mouse x and y position in an object literal
+            onMouseMove={(e) =>
+              setMousePosition({ x: e.clientX, y: e.clientY })
+            }
+          >
             <ShopCategory
               category={category}
               shopItems={shopItems}
@@ -118,7 +125,12 @@ function Shop() {
         {hoveredItem && (
           <div
             className="item-tooltip"
-            style={{ backgroundColor: `var(--${category}-accent)` }}
+            style={{
+              backgroundColor: `var(--${category}-accent)`,
+              // position toolip slightly to the left of where the mouse is
+              left: mousePosition.x + 15,
+              top: mousePosition.y,
+            }}
           >
             <h3>{hoveredItem.name}</h3>
             {hoveredItemStats?.length > 0 && (

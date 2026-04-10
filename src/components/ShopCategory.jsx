@@ -27,7 +27,7 @@ function ShopCategory(props) {
                 cart={props.cart}
                 ownedItems={props.ownedItems}
                 onHover={props.setHoveredItem}
-                onLeave={() => props.setHoveredItem}
+                onLeave={() => props.setHoveredItem(null)}
               />
             ))}
         </div>
@@ -54,7 +54,7 @@ function ShopCategory(props) {
                 cart={props.cart}
                 ownedItems={props.ownedItems}
                 onHover={props.setHoveredItem}
-                onLeave={() => props.setHoveredItem}
+                onLeave={() => props.setHoveredItem(null)}
               />
             ))}
         </div>
@@ -81,7 +81,7 @@ function ShopCategory(props) {
                 cart={props.cart}
                 ownedItems={props.ownedItems}
                 onHover={props.setHoveredItem}
-                onLeave={() => props.setHoveredItem}
+                onLeave={() => props.setHoveredItem(null)}
               />
             ))}
         </div>
@@ -107,7 +107,7 @@ function ShopCategory(props) {
                 cart={props.cart}
                 ownedItems={props.ownedItems}
                 onHover={props.setHoveredItem}
-                onLeave={() => props.setHoveredItem}
+                onLeave={() => props.setHoveredItem(null)}
               />
             ))}
         </div>
