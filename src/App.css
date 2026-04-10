@@ -189,7 +189,6 @@ video {
 }
 
 .shop-categories button {
-  border: #000 1px solid;
   margin: 0 1px;
 }
 
@@ -467,7 +466,7 @@ a:hover {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 5px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
