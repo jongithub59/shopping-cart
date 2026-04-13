@@ -229,13 +229,13 @@ video {
 }
 
 .tier-1 .section-header {
-  top: 3%;
+  top: 2%;
   left: -1%;
 }
 
 .tier-2 .section-header {
-  top: 1%;
-  left: 1%;
+  top: 0.5%;
+  left: 0.5%;
 }
 
 .tier-3 .section-header {
