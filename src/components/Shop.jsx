@@ -2,7 +2,10 @@ import { Link, useOutletContext } from "react-router";
 import ShopCategory from "./ShopCategory";
 import shopLogo from "../assets/shop_logo_ui.png";
 import shopBackground from "../assets/background_nyc_cityscape_bw.webp";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import shopMusic from "../assets/curio_music.mp3";
+import music from "../assets/music_note.png";
+import noMusic from "../assets/music_note_slash.svg";
 
 function Shop() {
   const { cart, items, ownedItems, buyItem, setCart } = useOutletContext();
@@ -11,6 +14,8 @@ function Shop() {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredItemStats, setHoveredItemStats] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 }); // state variable to track mouse position to render toolip at mouse position
+  const audioRef = useRef(null); // state variable for reference to <audio> element so we can manipulate it later
+  const [isPlaying, setIsPlaying] = useState(false);
 
   // get the hovered item's properties and update state to display item stats in the tooltip
   useEffect(() => {
@@ -76,6 +81,22 @@ function Shop() {
       strippedText = strippedText.replace(/{[^}]*}/g, "R"); // // this is meant to show the reload keybind of the player, so I just use R
     }
     return strippedText;
+  }
+
+  // turn background music on and off
+  function toggleMusic() {
+    if (!audioRef.current) return; // check to prevent errors with null values
+    // pause music if already playing
+    if (isPlaying) {
+      audioRef.current.pause();
+      // otherwise play music as normal
+    } else {
+      audioRef.current.volume = 0.2; //set default volume when playing
+      audioRef.current.play();
+    }
+
+    // flip state to opposite
+    setIsPlaying(!isPlaying);
   }
 
   return (
@@ -169,6 +190,17 @@ function Shop() {
       </div>
       <div className="shop-background">
         <img src={shopBackground} alt="" />
+      </div>
+
+      {/* button for toggling music */}
+      <div className="musicButton">
+        <button onClick={toggleMusic}>
+          <img src={isPlaying ? music : noMusic} alt="music note" />
+        </button>
+
+        <audio volume ref={audioRef} loop>
+          <source src={shopMusic} type="audio/mpeg" />
+        </audio>
       </div>
     </>
   );

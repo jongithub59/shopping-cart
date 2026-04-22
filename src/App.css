@@ -368,6 +368,19 @@ video {
   font-family: "system-ui", "Segoe UI", sans-serif;
 }
 
+.musicButton {
+  align-self: start;
+  background-color: #929292;
+}
+
+.musicButton button {
+  background-color: #929292;
+}
+
+.musicButton img {
+  height: 40px;
+}
+
 .cart-page {
   margin: 20px auto;
   display: flex;
