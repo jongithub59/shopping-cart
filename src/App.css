@@ -369,16 +369,18 @@ video {
 }
 
 .musicButton {
+  display: flex;
   align-self: start;
-  background-color: #929292;
+  align-items: center;
 }
 
 .musicButton button {
-  background-color: #929292;
+  background-color: var(--primary);
+  border-radius: 140px;
 }
 
 .musicButton img {
-  height: 40px;
+  height: 30px;
 }
 
 .cart-page {

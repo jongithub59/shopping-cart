@@ -3,9 +3,7 @@ import ShopCategory from "./ShopCategory";
 import shopLogo from "../assets/shop_logo_ui.png";
 import shopBackground from "../assets/background_nyc_cityscape_bw.webp";
 import { useState, useEffect, useRef } from "react";
-import shopMusic from "../assets/curio_music.mp3";
-import music from "../assets/music_note.png";
-import noMusic from "../assets/music_note_slash.svg";
+import MusicPlayer from "./MusicPlayer";
 
 function Shop() {
   const { cart, items, ownedItems, buyItem, setCart } = useOutletContext();
@@ -14,8 +12,6 @@ function Shop() {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredItemStats, setHoveredItemStats] = useState(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 }); // state variable to track mouse position to render toolip at mouse position
-  const audioRef = useRef(null); // state variable for reference to <audio> element so we can manipulate it later
-  const [isPlaying, setIsPlaying] = useState(false);
 
   // get the hovered item's properties and update state to display item stats in the tooltip
   useEffect(() => {
@@ -192,16 +188,7 @@ function Shop() {
         <img src={shopBackground} alt="" />
       </div>
 
-      {/* button for toggling music */}
-      <div className="musicButton">
-        <button onClick={toggleMusic}>
-          <img src={isPlaying ? music : noMusic} alt="music note" />
-        </button>
-
-        <audio volume ref={audioRef} loop>
-          <source src={shopMusic} type="audio/mpeg" />
-        </audio>
-      </div>
+      <MusicPlayer></MusicPlayer>
     </>
   );
 }
