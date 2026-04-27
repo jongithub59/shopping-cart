@@ -29,26 +29,39 @@ function App() {
             // only items that can be purchased in-game will be added to the array and exclude legendaries that are not in the normal mode
             return item.shopable == true && item.cost !== 9999;
           })
-          .map((item) => ({
-            // creates and array of objects containing relevant info as props
-            id: item.id,
-            name: item.name,
-            className: item.class_name,
-            itemType: item.type,
-            tier: item.item_tier,
-            cost: item.cost,
-            description: item.description.desc,
-            activeDescription: item.description.active,
-            passiveDescription: item.description.passive,
-            image: item.shop_image,
-            category: item.item_slot_type,
-            components: item.component_items,
-            isActive: item.is_active_item,
-            isImbue: item.imbue,
-            properties: item.properties,
-            desc: item.description,
-            stats: item.upgrades[0].property_upgrades,
-          })),
+          .map((item) => {
+            // find active/passive descriptions through the tooltip_sections array in th api
+            // because the other descriptions props used before were not correctly labeled as active or passive.
+            // these are actually correctly labeled for every item so displaying actives/passives is now very easy
+            const passiveSection = item.tooltip_sections?.find(
+              // use optional chaining since structure varies item to item and can cause errors
+              (section) => section.section_type === "passive",
+            );
+
+            const activeSection = item.tooltip_sections?.find(
+              (section) => section.section_type === "active",
+            );
+            return {
+              // creates and array of objects containing relevant info as props
+              id: item.id,
+              name: item.name,
+              className: item.class_name,
+              itemType: item.type,
+              tier: item.item_tier,
+              cost: item.cost,
+              image: item.shop_image,
+              category: item.item_slot_type,
+              components: item.component_items,
+              isActive: item.is_active_item,
+              isImbue: item.imbue,
+              properties: item.properties,
+              desc: item.description,
+              stats: item.upgrades[0].property_upgrades,
+              passiveTooltip:
+                passiveSection?.section_attributes?.[0]?.loc_string,
+              activeTooltip: activeSection?.section_attributes?.[0]?.loc_string,
+            };
+          }),
       )
       .then((response) => {
         setItems(response);

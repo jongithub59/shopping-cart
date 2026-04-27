@@ -158,28 +158,20 @@ function Shop() {
               </ul>
             )}
 
-            {hoveredItem.description && hoveredItem.isActive ? (
-              <p>
-                {/* for some reason some active descriptions aren't in the activeDescription prop, 
-                this makes sure you know it's an active effect rather than a passive effect */}
-                <strong>Active: </strong>
-                {stripHTML(hoveredItem.description)}
-              </p>
-            ) : (
-              <p>{stripHTML(hoveredItem.description)}</p>
-            )}
-
-            {hoveredItem.passiveDescription && (
+            {/* display passive tooltip if the item has one */}
+            {hoveredItem.passiveTooltip && (
               <>
-                <p>{stripHTML(hoveredItem.passiveDescription)}</p>
+                <strong>Passive</strong>
+                <p>{stripHTML(hoveredItem.passiveTooltip)}</p>
               </>
             )}
 
-            {hoveredItem.activeDescription && (
-              <p>
-                <strong>Active: </strong>
-                {stripHTML(hoveredItem.activeDescription)}
-              </p>
+            {/* display active tooltip if the item has one */}
+            {hoveredItem.activeTooltip && (
+              <>
+                <strong>Active</strong>
+                <p>{stripHTML(hoveredItem.activeTooltip)}</p>
+              </>
             )}
           </div>
         )}
