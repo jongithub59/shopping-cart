@@ -55,7 +55,7 @@ function App() {
               isActive: item.is_active_item,
               isImbue: item.imbue,
               properties: item.properties,
-              desc: item.description,
+              desc: item.description.desc,
               stats: item.upgrades[0].property_upgrades,
               passiveTooltip:
                 passiveSection?.section_attributes?.[0]?.loc_string,

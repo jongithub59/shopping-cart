@@ -173,6 +173,19 @@ function Shop() {
                 <p>{stripHTML(hoveredItem.activeTooltip)}</p>
               </>
             )}
+
+            {/* some items don't have the good tooltips so the old ones will have to be used
+                luckily it seems to be only some passives descriptions missing. Juggernaut has neither atm */}
+            {!hoveredItem.activeTooltip &&
+            !hoveredItem.passiveTooltip &&
+            hoveredItem.desc !== undefined ? (
+              <>
+                <strong>Passive</strong>
+                <p>{stripHTML(hoveredItem.desc)}</p>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         )}
       </div>
