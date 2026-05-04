@@ -215,7 +215,7 @@ video {
 
 .section {
   position: absolute;
-  min-width: 450px;
+  min-width: 425px;
   padding-top: 50px;
 }
 
@@ -230,7 +230,7 @@ video {
 
 .tier-1 .section-header {
   top: 2%;
-  left: -1%;
+  left: -4%;
 }
 
 .tier-2 .section-header {
@@ -240,7 +240,7 @@ video {
 
 .tier-3 .section-header {
   top: -0.5%;
-  left: 1%;
+  left: 0;
 }
 
 .tier-4 .section-header {
@@ -260,7 +260,7 @@ video {
 
 .tier-1 {
   top: 14.5%;
-  left: 4%;
+  left: 5.5%;
 }
 
 .tier-2 {
@@ -271,8 +271,8 @@ video {
 
 .tier-3 {
   bottom: 3%;
-  left: 4.5%;
-  width: 47%;
+  left: 5%;
+  width: 46%;
 }
 
 .tier-4 {
@@ -300,6 +300,10 @@ video {
   display: grid;
   gap: 2px;
   grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+}
+
+.tier-3 .items-grid {
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
 }
 
 .item {
@@ -359,7 +363,7 @@ video {
   justify-content: center;
   text-align: center;
   font-size: 0.7rem;
-  height: 60px;
+  height: 70px;
   align-items: center;
   background-color: var(--weapon-accent);
   color: black;
