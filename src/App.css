@@ -102,7 +102,7 @@ video {
 }
 
 .shop-logo {
-  height: 120px;
+  height: 100px;
   max-height: 180px;
   margin-bottom: 20px;
   align-self: center;
@@ -480,10 +480,6 @@ a {
   text-decoration: inherit;
 }
 
-a:hover {
-  color: var(--primary);
-}
-
 button {
   border-radius: 5px;
   border: 1px solid transparent;
@@ -495,12 +491,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: var(--primary);
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transform: scale(1.03);
+  transition: 0.2s ease-out;
 }
 
 @media (prefers-color-scheme: light) {

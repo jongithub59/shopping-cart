@@ -113,7 +113,7 @@ function App() {
 
     setCart((prev) => [...prev, item]);
 
-    console.log("Added item:", item);
+    console.log(`Added item: ${item.name}`, item);
   }
 
   function clearCart() {

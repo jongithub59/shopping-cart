@@ -9,7 +9,10 @@ function Cart() {
   const totalCost = cart.reduce((total, item) => total + item.cost, 0); // calculate sum of total cart price
   const formattedCost = totalCost.toLocaleString(); // format cast to add comma
 
-  console.log(`Current cart: ${cart.map((item) => item.name)}`);
+  console.log(
+    `Current cart: ${cart.map((item) => item.name)}`,
+    cart.map((item) => item),
+  );
   return (
     <div className="app">
       <div className="shop-logo">
